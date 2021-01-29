@@ -24,7 +24,7 @@ import (
 const a int = 2
 
 // 正解のときだけ true を返す
-func calc(b, c, d int) (bool, error) {
+func calc1_3(b, c, d int) (bool, error) {
 	ab := a*10 + b
 
 	efg := ab * d
@@ -59,7 +59,7 @@ func main() {
 	for b := 0; b < 10; b++ {
 		for c := 0; c < 10; c++ {
 			for d := 0; d < 10; d++ {
-				r, _ := calc(b, c, d)
+				r, _ := calc1_3(b, c, d)
 				if r == true {
 					fmt.Println("b:", b, "c:", c, "d:", d)
 					break
