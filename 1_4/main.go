@@ -19,25 +19,25 @@ import (
 func main() {
 	for a := 100000; a < 1000000; a++ {
 		for b := 1000; b < 10000; b++ {
-			fmt.Printf("a: %d\r", a)
+			if (a%100000 == 0) && (b%1000 == 0) {
+				fmt.Printf("a: %d, b: %d\n", a, b)
+			}
 
 			r, err := calc(a, b)
 			if err != nil {
-				fmt.Println()
-				fmt.Printf("a: %d, b: %d", a, b)
-				fmt.Println()
+				fmt.Printf("a: %d, b: %d\n", a, b)
 				log.Fatal(err)
 			}
 
 			if r == true {
-				fmt.Println()
-				fmt.Printf("a: %d, b: %d", a, b)
-				fmt.Println()
+				fmt.Printf("a: %d, b: %d\n", a, b)
 				fmt.Println("sucess!")
 				break
 			}
 		}
 	}
+
+	fmt.Println("該当なし。")
 }
 
 func calc(a, b int) (bool, error) {
