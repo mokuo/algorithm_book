@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"os"
 )
 
 //   a  6桁       xxxxxx   a6 a5 a4 a3 a2 a1
@@ -25,19 +26,19 @@ func main() {
 
 			r, err := calc(a, b)
 			if err != nil {
-				fmt.Printf("a: %d, b: %d\n", a, b)
+				fmt.Printf("Error => a: %d, b: %d\n", a, b)
 				log.Fatal(err)
 			}
 
 			if r == true {
-				fmt.Printf("a: %d, b: %d\n", a, b)
+				fmt.Printf("Answer => a: %d, b: %d\n", a, b)
 				fmt.Println("sucess!")
-				break
+				os.Exit(0)
 			}
 		}
 	}
 
-	fmt.Println("該当なし。")
+	fmt.Println("done.")
 }
 
 func calc(a, b int) (bool, error) {
@@ -109,7 +110,7 @@ func calc(a, b int) (bool, error) {
 	}
 
 	// g
-	g := c * (d * 10) * (e * 100) * (f * 1000)
+	g := c + (d * 10) + (e * 100) + (f * 1000)
 	if !isNdigit(g, 10) {
 		return false, nil
 	}
@@ -182,3 +183,6 @@ func nDigit(a, n int) int {
 		return 0
 	}
 }
+
+// Answer => a: 666666, b: 1711
+// sucess!
