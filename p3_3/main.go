@@ -1,19 +1,16 @@
 package p3_3
 
+import (
+	"math"
+)
+
 // nums は2個以上で、全て異なる整数
 // 2番目に小さい値を求める
 func Algo(nums []int) int {
-	var min1, min2 int
+	min1 := math.MaxInt64
+	min2 := math.MaxInt64
 
-	if nums[0] < nums[1] {
-		min1 = nums[0]
-		min2 = nums[1]
-	} else {
-		min1 = nums[1]
-		min2 = nums[2]
-	}
-
-	for i := 2; i < len(nums); i++ {
+	for i := 0; i < len(nums); i++ {
 		if nums[i] < min1 {
 			min2 = min1
 			min1 = nums[i]
